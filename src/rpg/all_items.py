@@ -1,0 +1,65 @@
+from weapon import Weapon
+from armor import *
+from potion import Potion
+
+# Keeps track of all possible weapons
+weapons = {'IRON_SWORD': Weapon('Iron Sword', 'Iron', 50,
+                                'A basic blade crudely fashioned from iron.', None, 1, 5),
+           'STEEL_SWORD': Weapon('Steel Sword', 'Steel', 75,
+                                 'A fine sword elegantly forged from steel.', None, 3, 10),
+           'SILVER_SWORD': Weapon('Silver Sword', 'Silver', 150,
+                                  'A very elaborate weapon molded from reinforced silver.', None, 5, 15),
+           'GOLD_SWORD': Weapon('Gold Sword', 'Gold', 250,
+                                'A beautiful blade carefully crafted from strengthened gold.', None, 8, 20),
+           'OBSIDIAN_SWORD': Weapon('Obsidian Sword', 'Obsidian', 500,
+                                    'A dark, malicious katana reaped from the sharpest obsidian.', None, 10, 25),
+           'DIAMOND_SWORD': Weapon('Diamond Sword', 'Diamond', 5000,
+                                   'A truly remarkable sword shaped from the strongest diamond.', None, 20, 40),
+           'FLAMING_SWORD': Weapon('Flaming Sword', 'Special', 10000,
+                                   'An enchanted sword that rends foes asunder with fiery fury.', None, 25, 50)}
+
+# Keeps track of all possible armor
+armor = {'IRON_BOOTS': Boots('Iron Boots', 'Iron', 100, 'A basic pair of iron boots.', None, 1),
+         'IRON_GREAVES': Greaves('Iron Greaves', 'Iron', 100, 'A basic pair of iron greaves.', None, 1),
+         'IRON_CHESTPLATE': Chestplate('Iron Chestplate', 'Iron', 100, 'A basic iron chestplate.', None, 1),
+         'IRON_GAUNTLETS': Gauntlets('Iron Gauntlets', 'Iron', 100, 'A basic pair of iron gauntlets.', None, 1),
+         'IRON_HELMET': Helmet('Iron Helmet', 'Iron', 100, 'A basic iron helmet.', None, 1),
+         'STEEL_BOOTS': Boots('Steel Boots', 'Steel', 200, 'A fine pair of steel boots.', None, 2),
+         'STEEL_GREAVES': Greaves('Steel Greaves', 'Steel', 200, 'A fine pair of steel greaves.', None, 2),
+         'STEEL_CHESTPLATE': Chestplate('Steel Chestplate', 'Steel', 200, 'A fine steel chestplate.', None, 2),
+         'STEEL_GAUNTLETS': Gauntlets('Steel Gauntlets', 'Steel', 200, 'A fine pair of steel gauntlets.', None, 2),
+         'STEEL_HELMET': Helmet('Steel Helmet', 'Steel', 200, 'A fine steel helmet.', None, 2),
+         'SILVER_BOOTS': Boots('Silver Boots', 'Silver', 500, 'A beautiful pair of silver boots.', None, 4),
+         'SILVER_GREAVES': Greaves('Silver Greaves', 'Silver', 500, 'A beautiful pair of silver greaves.', None, 4),
+         'SILVER_CHESTPLATE': Chestplate('Silver Chestplate', 'Silver', 500, 'A beautiful silver chestplate.', None, 4),
+         'SILVER_GAUNTLETS': Gauntlets('Silver Gauntlets', 'Silver', 500, 'A beautiful pair of silver gauntlets.', None, 4),
+         'SILVER_HELMET': Helmet('Silver Helmet', 'Silver', 500, 'A beautiful silver helmet.', None, 4),
+         'GOLD_BOOTS': Boots('Gold Boots', 'Gold', 1000, 'A brilliant pair of gold boots.', None, 6),
+         'GOLD_GREAVES': Greaves('Gold Greaves', 'Gold', 1000, 'A brilliant pair of gold greaves.', None, 6),
+         'GOLD_CHESTPLATE': Chestplate('Gold Chestplate', 'Gold', 1000, 'A brilliant gold chestplate.', None, 6),
+         'GOLD_GAUNTLETS': Gauntlets('Gold Gauntlets', 'Gold', 1000, 'A brilliant pair of gold gauntlets.', None, 6),
+         'GOLD_HELMET': Helmet('Gold Helmet', 'Gold', 1000, 'A brilliant gold helmet.', None, 6),
+         'OBSIDIAN_BOOTS': Boots('Obsidian Boots', 'Obsidian', 2500, 'A powerful pair of obsidian boots.', None, 8),
+         'OBSIDIAN_GREAVES': Greaves('Obsidian Greaves', 'Obsidian', 2500, 'A powerful pair of obsidian greaves.', None, 8),
+         'OBSIDIAN_CHESTPLATE': Chestplate('Obsidian Chestplate', 'Obsidian', 2500, 'A powerful obsidian chestplate.', None, 8),
+         'OBSIDIAN_GAUNTLETS': Gauntlets('Obsidian Gauntlets', 'Obsidian', 2500, 'A powerful pair of obsidian gauntlets.', None, 8),
+         'OBSIDIAN_HELMET': Helmet('Obsidian Helmet', 'Obsidian', 2500, 'A powerful obsidian helmet.', None, 8),
+         'DIAMOND_BOOTS': Boots('Diamond Boots', 'Diamond', 5000, 'A legendary pair of diamond boots.', None, 10),
+         'DIAMOND_GREAVES': Greaves('Diamond Greaves', 'Diamond', 5000, 'A legendary pair of diamond greaves.', None, 10),
+         'DIAMOND_CHESTPLATE': Chestplate('Diamond Chestplate', 'Diamond', 5000, 'A legendary diamond chestplate.', None, 10),
+         'DIAMOND_GAUNTLETS': Gauntlets('Diamond Gauntlets', 'Diamond', 5000, 'A legendary pair of diamond gauntlets.', None, 10),
+         'DIAMOND_HELMET': Helmet('Diamond Helmet', 'Diamond', 5000, 'A legendary diamond helmet.', None, 10)}
+
+# Keeps track of all possible potions
+potions = {'SMALL_HEALTH_POTION': Potion('Small Health Potion', 'Small', 50,
+                                         'A small health potion that heals between 20 and 40 health.', None, 20, 40),
+           'MEDIUM_HEALTH_POTION': Potion('Medium Health Potion', 'Medium', 75,
+                                          'A medium health potion that heals between 30 and 50 health.', None, 30, 50),
+           'LARGE_HEALTH_POTION': Potion('Large Health Potion', 'Large', 150,
+                                         'A large health potion that heals between 50 and 100 health.', None, 50, 100),
+           'EXTRA_LARGE_HEALTH_POTION': Potion('Extra Large Health Potion', 'Extra Large', 250,
+                                         'An extra large health potion that heals between 75 and 150 health.', None, 75, 150),
+           'SUPER_HEALTH_POTION': Potion('Super Health Potion', 'Super', 500,
+                                               'A super large health potion that heals between 100 and 200 health.', None, 75, 150),
+           'MIRACULOUS_HEALTH_POTION': Potion('Miraculous Health Potion', 'Miraculous', 1000,
+                                               'A miraculous health potion that heals you completely.', None, 10000, 10000)}

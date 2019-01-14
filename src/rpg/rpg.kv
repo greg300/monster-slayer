@@ -1,0 +1,121 @@
+#:kivy 1.0.9
+
+#:import GameInterface rpg.gameinterface
+#:include gameinterface.kv
+
+<ScreenSwitcher>:
+    StartScreen:
+    GameScreen:
+    PauseScreen:
+    InventoryScreen:
+    PlayerDeathScreen:
+
+<StartScreen>:
+    id: start_screen
+    name: 'Start Screen'
+    BoxLayout:
+        orientation: 'vertical'
+        Image:
+            id: colours_image
+            allow_stretch: True
+            keep_ratio: False
+            source: 'images/backgrounds/SkyrimPillars.png'
+            size_hint_y: None
+            height: root.height / 2
+            width: self.parent.width / self.image_ratio
+        Button:
+            background_color: [0.5, 0, 0, 1]
+            text: 'QUIT'
+            font_size: 30
+            on_release: quit()
+        Button:
+            background_color: [0, 0.5, 0, 1]
+            text: 'START'
+            font_size: 30
+            on_release: start_screen.start()
+
+<GameScreen>:
+    id: game_screen
+    name: 'Game Screen'
+    BoxLayout:
+        orientation: 'vertical'
+        Game
+
+<PauseScreen>:
+    id: pause_screen
+    name: 'Pause Screen'
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'PAUSED'
+            font_size: 100
+            size: self.size
+            canvas.before:
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                    source: 'images/colours.png'
+        Button:
+            background_color: [0, 0, 0.5, 1]
+            text: 'FULLSCREEN'
+            font_size: 30
+            on_release: pause_screen.go_fullscreen()
+        Button:
+            background_color: [0, 0.5, 0, 1]
+            text: 'RESUME'
+            font_size: 30
+            on_release: pause_screen.resume()
+        Button:
+            background_color: [0.5, 0, 0, 1]
+            text: 'QUIT'
+            font_size: 30
+            on_release: quit()
+
+<InventoryScreen>:
+    id: inventory_screen
+    name: 'Inventory Screen'
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'INVENTORY'
+            font_size: 100
+            size: self.size
+            canvas.before:
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                    source: 'images/colours.png'
+        Button:
+            background_color: [0, 0.5, 0, 1]
+            text: 'RESUME'
+            font_size: 30
+            on_release: inventory_screen.resume()
+
+<PlayerDeathScreen>:
+    id: death_screen
+    name: 'Death Screen'
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'YOU HAVE DIED'
+            font_size: 100
+            size: self.size
+            canvas.before:
+                Color:
+                    rgba: [1, 0, 0, 1]
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+        Button:
+            background_color: [0.5, 0, 0, 1]
+            text: 'QUIT'
+            font_size: 75
+            on_release: quit()
+
+
+<Game>:
+    game_interface: game_interface
+    id: game
+    GameInterface:
+        id: game_interface
+

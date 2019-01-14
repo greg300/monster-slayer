@@ -1,0 +1,139 @@
+#:kivy 1.0.9
+
+#:import GameInterface rpg.gameinterface
+#:import Background rpg.background
+#:import BouncingMonsterWidget rpg.monster
+#:import SeekingMonsterWidget rpg.monster
+#:import PlayerWidget rpg.player
+#:import Ground rpg.ground
+#:import Weapon rpg.weapon
+#:import * rpg.all_monsters
+
+<Background>:
+    size_hint: None, None
+    size: self.parent.parent.size
+    Image:
+        source: 'images/backgrounds/DungeonBrick.png'
+        id: background_image
+        allow_stretch: True
+        keep_ratio: False
+        pos: root.pos
+        width: self.parent.size[0]
+        height: self.parent.size[1]
+
+<BouncingMonsterWidget>:
+    sprite: bouncer_image
+    size: 150, 150
+    canvas.before:
+        Color:
+            id: widget_color
+            rgba: root.sprite_color
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Image:
+        canvas.before:
+            Color:
+                id: image_color
+                rgba: (1, 0, 0, 0)
+        source: 'images/enemy_sprite/GreenDragonFlyingRight.zip'
+        id: bouncer_image
+        allow_stretch: True
+        keep_ratio: True
+        anim_delay: 0.1
+        pos: root.x - 50, root.y - 50
+        width: self.parent.size[0] + 100
+        height: self.parent.size[1] + 100
+
+<SeekingMonsterWidget>:
+    sprite: seeker_image
+    canvas.before:
+        Color:
+            id: widget_color
+            rgba: root.sprite_color
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Image:
+        canvas.after:
+            Color:
+                id: seeker_image_color
+                rgba: root.sprite_color
+        source: 'images/enemy_sprite/BlackDragonFlyingRight.zip'
+        id: seeker_image
+        allow_stretch: True
+        keep_ratio: True
+        anim_delay: 0.08
+        pos: root.pos
+        pos: root.x - 50, root.y - 50
+        width: self.parent.size[0] + 100
+        height: self.parent.size[1] + 100
+
+
+<PlayerWidget>:
+    sprite: player_image
+    size: 150, 150
+    canvas.before:
+        Color:
+            rgba: root.sprite_color
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Image:
+        source: 'images/player_sprite/StandingRight.zip'
+        id: player_image
+        allow_stretch: True
+        keep_ratio: False
+        anim_delay: 0.1
+        pos: root.pos
+        width: self.parent.size[0]
+        height: self.parent.size[1]
+
+<Ground>:
+    size_hint: None, None
+    size: self.parent.parent.size[0], 100
+    Image:
+        source: 'images/floor_sprite/CastleFloorShort.jpeg'
+        id: background_image
+        allow_stretch: True
+        keep_ratio: False
+        pos: root.pos
+        width: self.parent.size[0]
+        height: self.parent.size[1]
+
+<GameInterface>:
+    background: background
+    bouncer: bouncer
+    seeker: seeker
+    player: player
+    base: ground
+
+    Background:
+        id: background
+        pos: 0, 0
+
+    BouncingMonsterWidget:
+        id: bouncer
+        pos: 300, 300
+
+    SeekingMonsterWidget:
+        id: seeker
+        pos: 500, 300
+
+    PlayerWidget:
+        id: player
+        pos: 0, ground.height
+
+    Ground:
+        id: ground
+        pos: 0, 0
+
+<Weapon>:
+    id: weapon_displayed
+    size: 100, 120
+    canvas.before:
+        Color:
+            rgba: 0, 1, 0, 0.5
+        Rectangle:
+            pos: self.pos
+            size: self.size
